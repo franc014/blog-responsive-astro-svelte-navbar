@@ -1,4 +1,15 @@
-<button
+<script>
+  import { createEventDispatcher } from "svelte";
+  export let navIsOpen;
+
+  const dispatch = createEventDispatcher();
+
+  function toggleNavbar(e) {
+    dispatch("openNavigation");
+  }
+</script>
+
+<button class:navIsOpen class="hidden" on:click={toggleNavbar}
   ><svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
@@ -14,3 +25,9 @@
     />
   </svg>
 </button>
+
+<style>
+  .navIsOpen {
+    @apply block;
+  }
+</style>
