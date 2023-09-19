@@ -1,15 +1,17 @@
 <script>
-  import { createEventDispatcher } from "svelte";
-  export let navIsOpen;
+  import {navIsOpen} from './stores';
+  //import { createEventDispatcher } from "svelte";
+  //export let navIsOpen;
 
-  const dispatch = createEventDispatcher();
+  //const dispatch = createEventDispatcher();
 
   function toggleNavbar(e) {
-    dispatch("openNavigation");
+    navIsOpen.update((open)=>!open );
+    //dispatch("openNavigation");
   }
 </script>
 
-<button class:navIsOpen class="block" on:click={toggleNavbar}
+<button class:navIsOpen={$navIsOpen} class="block" on:click={toggleNavbar}
   ><svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
