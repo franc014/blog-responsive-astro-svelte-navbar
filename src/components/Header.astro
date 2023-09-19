@@ -1,11 +1,12 @@
 ---
 import Menu from "./svelte/Menu.svelte";
+import Logo from './Logo.astro';
 ---
 
-<header class="bg-indigo-800">
-  <div class="container mx-auto bg-gray-400">
-    <div class="flex flex-col items-center">
-      <div>Logo</div>
+<header class="bg-gradient-to-tl from-slate-500 to-violet-800">
+  <div class="container mx-auto">
+    <div class="flex flex-wrap items-center">
+      <Logo/>
       <Menu client:only="svelte"/>
     </div>
   </div>
