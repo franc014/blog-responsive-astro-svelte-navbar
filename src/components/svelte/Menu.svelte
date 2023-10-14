@@ -2,18 +2,18 @@
   import { navIsOpen } from "./stores";
   import MenuBtn from "./MenuBtn.svelte";
   import CloseBtn from "./CloseBtn.svelte";
-  import { fly, fade } from "svelte/transition";
-  import { sineIn } from "svelte/easing";
+  import { fly } from "svelte/transition";
+  import { sineIn, sineOut } from "svelte/easing";
 </script>
 
-<div class="ml-auto p-4">
+<div class="ml-auto p-4 relative">
   <MenuBtn />
   <CloseBtn />
 </div>
 {#key $navIsOpen}
   <nav
-    in:fly={{ y: -200, duration: 1000, easing: sineIn }}
-    out:fly={{ x: -200 }}
+    in:fly={{ y: -200, easing: sineIn }}
+    out:fly={{ y: -200, easing: sineOut }}
     class:navIsOpen={$navIsOpen}
     class="w-full hidden py-8"
   >
